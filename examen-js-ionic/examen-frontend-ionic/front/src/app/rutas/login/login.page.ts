@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastController } from '@ionic/angular';
+import { ToastController, NavController } from '@ionic/angular';
 import { CajeroHttpService } from 'src/app/servicios/cajero-http.service';
 import { Router } from '@angular/router';
 
@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class LoginPage implements OnInit {
 
   nombreCajero;
+  rutaTab;
   constructor(public toastController: ToastController,
               private readonly cajeroHttpService:CajeroHttpService,
               private readonly _router:Router) { }
@@ -30,7 +31,7 @@ export class LoginPage implements OnInit {
             this._router.navigate(url);
           }else{
             const idCajero = datos[0].id;
-            const url = ['/tab',idCajero,'tabs','tab1',idCajero];
+            const url = ['/tab','tabs',idCajero,'tab1',idCajero];
             this._router.navigate(url);
           }
         },

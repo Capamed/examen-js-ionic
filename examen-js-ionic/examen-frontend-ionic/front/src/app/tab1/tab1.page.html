@@ -1,41 +1,84 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab One
+      Administrar Grupos
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-card class="welcome-card">
-      <img src="/assets/shapes.svg" alt="" />
-      <ion-card-header>
-        <ion-card-subtitle>Get Started</ion-card-subtitle>
-        <ion-card-title>Welcome to Ionic</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
-      </ion-card-content>
-    </ion-card>
-    <ion-list lines="none">
-      <ion-list-header>
-        <ion-label>Resources</ion-label>
-      </ion-list-header>
-      <ion-item href="https://ionicframework.com/docs/">
-        <ion-icon slot="start" color="medium" name="book"></ion-icon>
-        <ion-label>Ionic Documentation</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/building/scaffolding">
-        <ion-icon slot="start" color="medium" name="build"></ion-icon>
-        <ion-label>Scaffold Out Your App</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/layout/structure">
-        <ion-icon slot="start" color="medium" name="grid"></ion-icon>
-        <ion-label>Change Your App Layout</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/theming/basics">
-        <ion-icon slot="start" color="medium" name="color-fill"></ion-icon>
-        <ion-label>Theme Your App</ion-label>
-      </ion-item>
-    </ion-list>
+  <ion-grid>
+    <ion-row>
+      <form>
+       <ion-item>
+           <ion-icon name="search"></ion-icon>
+           <ion-label>Buscar:</ion-label>
+           <ion-input></ion-input>
+        </ion-item>
+        <ion-row>
+          <ion-col size="2"></ion-col>
+          <ion-col size="2">
+            <a [routerLink]="rutaCrearEntrenador"><ion-button color="primary" type="button" class="btnCrear">Crear</ion-button></a>
+          </ion-col>
+          <ion-col size="4"></ion-col>
+          <ion-col size="2">
+            <ion-button color="success" type="submit" class="btnBuscar">Buscar</ion-button>
+          </ion-col>
+        </ion-row>
+      </form>
+    </ion-row>
+    <br>
+    <br>
+    <br>
+    <br>
+    <ion-row>
+      <ion-col size="4"></ion-col>
+      <ion-col size="4">
+          <ion-button color="warning" type="button" class="btnActualizar" (click)="mostrarDatosTabla()">Actualizar Tabla</ion-button>
+      </ion-col>
+      <ion-col size="4"></ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col class="columnaEntrenador" size="2">
+        Nombre
+      </ion-col>
+      <ion-col class="columnaEntrenador" size="2">
+        Apellido
+      </ion-col>
+      <ion-col class="columnaEntrenador" size="2">
+        Fecha 
+      </ion-col>
+      <ion-col class="columnaEntrenador" size="2">
+        Medallas  
+      </ion-col>
+      <ion-col  class="columnaEntrenador" size="2">
+        Campeon  
+      </ion-col>
+      <ion-col class="columnaEntrenador" size="2">
+        Acciones  
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let entrenador of arregloEntrenadores">
+      <ion-col class="columnaEntrenadorResultado" size="2">
+        {{entrenador.nombre}}
+      </ion-col>
+      <ion-col class="columnaEntrenadorResultado" size="2">
+        {{entrenador.apellido}}
+      </ion-col>
+      <ion-col class="columnaEntrenadorResultado" size="2">
+        {{entrenador.fechaNacimiento}}
+      </ion-col>
+      <ion-col class="columnaEntrenadorResultado" size="2">
+        {{entrenador.medallas}}
+      </ion-col>
+      <ion-col class="columnaEntrenadorResultado" size="2">
+        {{entrenador.campeonActual}}
+      </ion-col>
+      <ion-col class="columnaEntrenadorResultado" size="2">
+        <a [routerLink]="['/pokemon',idCajero,entrenador.id]"><ion-button color="primary" type="submit" class="btnPokemon">P</ion-button></a>
+        <ion-button color="danger" type="button" class="btnEliminar" (click)="eliminarEntrenador(entrenador.id)">E</ion-button>
+      </ion-col>
+    </ion-row>
+   </ion-grid>
 </ion-content>

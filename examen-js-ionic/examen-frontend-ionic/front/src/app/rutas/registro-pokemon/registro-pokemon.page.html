@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>registro-pokemon</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+        <ion-row>
+          <ion-col>
+          <form #formularioRegistro = "ngForm" 
+          novalidate
+          (submit)="registrarPokemon(formularioRegistro)">
+          <ion-item>
+            <ion-label for="nombrePokemon" position="stacked">Ingrese Nombre Pokemon</ion-label>
+            <ion-input id="nombrePokemon" type="text" name="nombrepokemon" [(ngModel)]="nombrePokemon"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label for="poderPokemon" position="stacked">Ingrese Poder Pokemon</ion-label>
+              <ion-input id="poderPokemon" type="text" name="poderpokemon" [(ngModel)]="poderPokemon"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label for="fechaCapturaPokemon" position="stacked">Ingrese Fecha Captura</ion-label>
+              <ion-input id="fechaCapturaPokemon" type="date" name="fechacapturapokemon" [(ngModel)]="fechaCapturaPokemon"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label for="nivelPokemon" position="stacked">Ingrese Nivel</ion-label>
+              <ion-input id="nivelPokemon" type="number" name="nivelpokemon" [(ngModel)]="nivelPokemon"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label for="costoPokemon" position="stacked">Ingrese Costo</ion-label>
+              <ion-input id="costoPokemon" type="number" name="costopokemon" [(ngModel)]="costoPokemon"></ion-input>
+          </ion-item>
+          <ion-row>
+            <ion-col size="4"></ion-col>
+            <ion-col size="4">
+              <ion-button color="danger" type="submit" class="btnRegistrar" [routerLink]="rutaMenuPokemon">Registrar</ion-button>
+            </ion-col>
+            <ion-col size="4"></ion-col>
+          </ion-row>
+          </form>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-content>

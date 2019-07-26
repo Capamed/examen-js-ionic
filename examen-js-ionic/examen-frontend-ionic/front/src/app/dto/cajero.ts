@@ -3,4 +3,5 @@ export interface Cajero{
     updatedAt?: number;
     id?: number;
     nombre:string;
+    arregloEntrenadores?: any[];
 }

@@ -13,6 +13,11 @@ module.exports = {
      type: 'string',
      required: true,
      unique: true,
+   },
+
+   arregloEntrenadores:{
+     collection: 'entrenador',
+     via: 'fkCajero'
    }
 
   },

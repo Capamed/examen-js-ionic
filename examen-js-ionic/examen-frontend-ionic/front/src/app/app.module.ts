@@ -12,6 +12,8 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CajeroHttpService } from './servicios/cajero-http.service';
+import { EntrenadorHttpService } from './servicios/entrenador-http.service';
+import { PokemonHttpService } from './servicios/pokemon-http.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,6 +23,8 @@ import { CajeroHttpService } from './servicios/cajero-http.service';
     StatusBar,
     SplashScreen,
     CajeroHttpService,
+    EntrenadorHttpService,
+    PokemonHttpService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

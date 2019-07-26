@@ -9,20 +9,34 @@ module.exports = {
 
   attributes: {
 
-    //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
-    //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
-    //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-
-
-    //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
-    //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
-    //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
-
-
-    //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
-    //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
-    //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-
+    nombre:{
+      type: 'string',
+      required: true,
+    },
+    apellido:{
+      type: 'string',
+      required: true,
+    },
+    fechaNacimiento:{
+      type: 'string',
+      required: true
+    },
+    medallas:{
+      type: 'number',
+      required: true,
+    },
+    campeonActual:{
+      type: 'boolean',
+      defaultsTo: false
+    },
+    fkCajero:{
+      model:'cajero',
+      required:true
+    },
+    arregloPokemons:{
+      collection: 'pokemon',
+      via: 'fkEntrenador'
+    }
   },
 
 };

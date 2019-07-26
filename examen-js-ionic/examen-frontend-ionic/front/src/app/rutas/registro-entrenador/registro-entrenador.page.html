@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>registro-entrenador</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+        <ion-row>
+          <ion-col>
+          <form #formularioRegistro = "ngForm" 
+          novalidate
+          (submit)="registrarEntrenador(formularioRegistro)">
+          <ion-item>
+            <ion-label for="nombreEntrenador" position="stacked">Ingrese Nombre Entrenador</ion-label>
+            <ion-input id="nombreEntrenador" type="text" name="nombreentrenador" [(ngModel)]="nombreEntrenador"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label for="apellidoEntrenador" position="stacked">Ingrese Apellido Entrenador</ion-label>
+              <ion-input id="apellidoEntrenador" type="text" name="apellidoentrenador" [(ngModel)]="apellidoEntrenador"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label for="fechaNacimientoEntrenador" position="stacked">Ingrese Fecha Nacimiento</ion-label>
+              <ion-input id="fechaNacimientoEntrenador" type="date" name="fechanacimientoentrenador" [(ngModel)]="fechaNacimientoEntrenador"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label for="medallasEntrenador" position="stacked">Ingrese Medallas</ion-label>
+              <ion-input id="medallasEntrenador" type="number" name="medallasentrenador" [(ngModel)]="medallasEntrenador"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label for="campeonEntrenador" position="stacked">Ingrese Campeon</ion-label>
+              <select name="campeonentrenador" [(ngModel)]="campeonEntrenador">
+                <option [ngValue]="si" value="true">SI</option>
+                <option [ngValue]="no" value="false">NO</option>
+              </select>
+            </ion-item>
+          <ion-row>
+            <ion-col size="4"></ion-col>
+            <ion-col size="4">
+              <ion-button color="danger" type="submit" class="btnRegistrar" [routerLink]="rutaMenuTab1">Registrar</ion-button>
+            </ion-col>
+            <ion-col size="4"></ion-col>
+          </ion-row>
+          </form>
+        </ion-col>
+      </ion-row>
+      </ion-grid>
+</ion-content>

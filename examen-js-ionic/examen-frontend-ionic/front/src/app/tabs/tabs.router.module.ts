@@ -4,11 +4,11 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: 'tabs/:idCajero',
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'tab1/:idCajero',
         children: [
           {
             path: '',
@@ -17,7 +17,7 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'tab2',
+        path: 'tab2/:idCajero',
         children: [
           {
             path: '',
@@ -26,7 +26,7 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'tab3',
+        path: 'tab3/:idCajero',
         children: [
           {
             path: '',
