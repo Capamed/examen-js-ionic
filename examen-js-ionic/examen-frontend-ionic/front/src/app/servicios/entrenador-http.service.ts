@@ -11,4 +11,10 @@ export class EntrenadorHttpService extends HttpSailsPrincipal <Entrenador>{
     constructor(private readonly _httpClient:HttpClient){
         super(_httpClient,environment.url,'/Entrenador');
     }
+
+
+
+    buscarPorNombre(nombreABuscar){
+
+    }
 }

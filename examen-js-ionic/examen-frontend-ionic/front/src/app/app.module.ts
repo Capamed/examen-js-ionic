@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CajeroHttpService } from './servicios/cajero-http.service';
 import { EntrenadorHttpService } from './servicios/entrenador-http.service';
 import { PokemonHttpService } from './servicios/pokemon-http.service';
+import { CarritoService } from './servicios/carrito-service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,6 +26,7 @@ import { PokemonHttpService } from './servicios/pokemon-http.service';
     CajeroHttpService,
     EntrenadorHttpService,
     PokemonHttpService,
+    CarritoService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

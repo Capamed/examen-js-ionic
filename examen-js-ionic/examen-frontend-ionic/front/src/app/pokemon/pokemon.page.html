@@ -20,7 +20,7 @@
               </ion-col>
               <ion-col size="4"></ion-col>
               <ion-col size="2">
-                <ion-button color="success" type="submit" class="btnBuscar">Buscar</ion-button>
+                <ion-button color="success" type="submit" class="btnBuscar" (click)="buscarPokemon">Buscar</ion-button>
               </ion-col>
             </ion-row>
           </form>
@@ -57,24 +57,24 @@
             Acciones
           </ion-col>
         </ion-row>
-        <ion-row>
+        <ion-row *ngFor="let pokemon of arregloPokemons">
           <ion-col class="columnaPokemonResultado" size="2">
-           
+            {{pokemon.nombre}}
           </ion-col>
           <ion-col class="columnaPokemonResultado" size="2">
-            
+            {{pokemon.poderEspecial}}
           </ion-col>
           <ion-col class="columnaPokemonResultado" size="2">
-            
+            {{pokemon.fechaCaptura}}
           </ion-col>
           <ion-col class="columnaPokemonResultado" size="2">
-            
+            {{pokemon.nivel}}
           </ion-col>
           <ion-col class="columnaPokemonResultado" size="2">
-           
+            {{pokemon.costo}}
           </ion-col>
           <ion-col class="columnaPokemonResultado" size="2">
-            <ion-button color="danger" type="button" class="btnEliminar" (click)="eliminarPokemon()">E</ion-button>
+            <ion-button color="danger" type="button" class="btnEliminar" (click)="eliminarPokemon(pokemon.id)">E</ion-button>
           </ion-col>
         </ion-row>
        </ion-grid>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CajeroHttpService } from '../servicios/cajero-http.service';
 import { EntrenadorHttpService } from '../servicios/entrenador-http.service';
+import { PokemonHttpService } from '../servicios/pokemon-http.service';
 
 @Component({
   selector: 'app-pokemon',
@@ -18,7 +19,8 @@ export class PokemonPage implements OnInit {
   constructor(private readonly _activatedRoute:ActivatedRoute,
     private readonly _router:Router, 
     private readonly _cajeroHttpService:CajeroHttpService,
-    private readonly _entrenadorHttpService:EntrenadorHttpService) { }
+    private readonly _entrenadorHttpService:EntrenadorHttpService,
+    private readonly _pokemonHttpService: PokemonHttpService) { }
 
   ngOnInit() {
     const parametros$ = this._activatedRoute.params;
@@ -37,6 +39,29 @@ export class PokemonPage implements OnInit {
           ); 
         }
       )
+  }
+
+  mostrarDatosTabla(){
+    const respuestaEntrenador$ = this._entrenadorHttpService.buscarPorId(this.idEntrenador);
+          respuestaEntrenador$
+          .subscribe(
+            (datos)=>{
+              this.arregloPokemons = datos.arregloPokemons;
+            }
+          ); 
+  }
+
+  eliminarPokemon(idPokemon){
+    const respuestaEliminarPokemon$ = this._pokemonHttpService.eliminarPorId(idPokemon);
+    respuestaEliminarPokemon$
+    .subscribe(
+      (datos)=>{
+        this.mostrarDatosTabla();
+      },
+      (error)=>{
+        console.log(error);
+      }
+    );
   }
 
 

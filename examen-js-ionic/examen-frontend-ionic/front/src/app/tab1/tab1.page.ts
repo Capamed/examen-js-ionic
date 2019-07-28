@@ -61,4 +61,8 @@ export class Tab1Page implements OnInit{
             }
           ); 
     }
+
+    buscarEntrenador(formulario){
+      const nombreABuscar = formulario.controls.nombrebuscarentrenador.value;
+    }
 }
