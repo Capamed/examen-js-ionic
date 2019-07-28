@@ -15,6 +15,8 @@ export class Tab1Page implements OnInit{
   rutaTab2;
   rutaCrearEntrenador;
   arregloEntrenadores = [];
+  arregloTempEntrenadoresBuscados;
+  esconder = true;
 
   constructor(
     private readonly _activatedRoute:ActivatedRoute,
@@ -57,6 +59,7 @@ export class Tab1Page implements OnInit{
           respuestaCajero$
           .subscribe(
             (datos)=>{
+              console.log(datos);
               this.arregloEntrenadores = datos.arregloEntrenadores;
             }
           ); 
@@ -64,5 +67,22 @@ export class Tab1Page implements OnInit{
 
     buscarEntrenador(formulario){
       const nombreABuscar = formulario.controls.nombrebuscarentrenador.value;
-    }
+      console.log('tipo',nombreABuscar);
+     if(nombreABuscar === ''){
+       this.mostrarDatosTabla();
+       this.esconder = true;
+     }else{
+      const respuestaBuscar$ = this._entrenadorHttpService.buscarPorNombre(nombreABuscar);
+      respuestaBuscar$.subscribe(
+        (datos)=>{
+          this.arregloTempEntrenadoresBuscados = datos; 
+          this.esconder=false;
+        },
+        (error)=>{
+          console.log(error);
+        }
+      );
+      }
+     }
+     
 }

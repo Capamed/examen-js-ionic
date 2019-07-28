@@ -12,9 +12,9 @@ export class EntrenadorHttpService extends HttpSailsPrincipal <Entrenador>{
         super(_httpClient,environment.url,'/Entrenador');
     }
 
-
-
     buscarPorNombre(nombreABuscar){
-
+        console.log("Cajero", nombreABuscar);
+        const url = `${this.url}/BuscarEntrenador/${nombreABuscar}`;
+        return this._httpClient.get(url);
     }
 }

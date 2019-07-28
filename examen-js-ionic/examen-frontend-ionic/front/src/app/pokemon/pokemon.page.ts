@@ -64,6 +64,8 @@ export class PokemonPage implements OnInit {
     );
   }
 
-
+  buscarPokemon(formulario){
+    const nombreABuscar = formulario.controls.nombrebuscarentrenador.value;
+  }
 
 }

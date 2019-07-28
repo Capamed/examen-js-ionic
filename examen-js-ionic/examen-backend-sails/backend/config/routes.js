@@ -12,6 +12,11 @@ module.exports.routes = {
 
   'GET /AutenticarCajero/:nombre':{
     action: 'cajero/autenticar'
+  },
+
+  'GET /BuscarEntrenador/:nombre':{
+    action: 'entrenador/buscar'
   }
+
 
 };

@@ -61,7 +61,7 @@
         Acciones  
       </ion-col>
     </ion-row>
-    <ion-row *ngFor="let entrenador of arregloEntrenadores">
+    <ion-row *ngFor="let entrenador of arregloEntrenadores" [hidden]="!esconder">
       <ion-col class="columnaEntrenadorResultado" size="2">
         {{entrenador.nombre}}
       </ion-col>
@@ -82,5 +82,30 @@
         <ion-button color="danger" type="button" class="btnEliminar" (click)="eliminarEntrenador(entrenador.id)">E</ion-button>
       </ion-col>
     </ion-row>
+
+
+    <ion-row *ngFor="let entrenador of arregloTempEntrenadoresBuscados" [hidden]="esconder">
+      <ion-col class="columnaEntrenadorResultado" size="2">
+        {{entrenador.nombre}}
+      </ion-col>
+      <ion-col class="columnaEntrenadorResultado" size="2">
+        {{entrenador.apellido}}
+      </ion-col>
+      <ion-col class="columnaEntrenadorResultado" size="2">
+        {{entrenador.fechaNacimiento}}
+      </ion-col>
+      <ion-col class="columnaEntrenadorResultado" size="2">
+        {{entrenador.medallas}}
+      </ion-col>
+      <ion-col class="columnaEntrenadorResultado" size="2">
+        {{entrenador.campeonActual}}
+      </ion-col>
+      <ion-col class="columnaEntrenadorResultado" size="2">
+        <a [routerLink]="['/pokemon',idCajero,entrenador.id]"><ion-button color="primary" type="submit" class="btnPokemon">P</ion-button></a>
+        <ion-button color="danger" type="button" class="btnEliminar" (click)="eliminarEntrenador(entrenador.id)">E</ion-button>
+      </ion-col>
+    </ion-row>
+
+
    </ion-grid>
 </ion-content>
